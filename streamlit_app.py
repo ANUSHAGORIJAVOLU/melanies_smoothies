@@ -7,7 +7,7 @@ st.title(f" :cup_with_straw: Customise Your Smoothie :cup_with_straw:")
 st.write(
   """Choose the fruit you want to your custom smoothie!
   """
-)
+) 
 
 
 from snowflake.snowpark.functions import col
