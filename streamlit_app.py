@@ -11,6 +11,7 @@ connection_parameters = {
 }
 # Import python packages
 import streamlit as st
+import requests
 from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark import Session
 def get_snowpark_session():
@@ -19,7 +20,7 @@ def get_snowpark_session():
 
 # Use this function to get a single session instead of creating new ones
 session = get_snowpark_session()
-import requests
+
 smoothiefroot_response = requests.get("https://my.fruityvice.com/api/fruit/watermelon")
 st.text(smoothiefroot_response)
 
