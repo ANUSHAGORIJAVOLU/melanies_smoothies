@@ -19,7 +19,9 @@ def get_snowpark_session():
 
 # Use this function to get a single session instead of creating new ones
 session = get_snowpark_session()
-
+import requests
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response)
 
 # Write directly to the app
 st.title(f" :cup_with_straw: Customise Your Smoothie :cup_with_straw:")
