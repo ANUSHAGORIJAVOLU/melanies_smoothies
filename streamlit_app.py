@@ -10,7 +10,7 @@ st.write(
 )
 
 
-from snowflake.snowpark.functions import col
+#from snowflake.snowpark.functions import col
 
 session = get_active_session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
