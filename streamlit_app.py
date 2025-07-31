@@ -22,7 +22,8 @@ def get_snowpark_session():
 session = get_snowpark_session()
 
 smoothiefroot_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-st.text(smoothiefroot_response.json())
+#st.text(smoothiefroot_response.json())
+sf_df=st.dataframe(data=smoothiefroot_response.json(),use_container_width=TRUE)
 
 # Write directly to the app
 st.title(f" :cup_with_straw: Customise Your Smoothie :cup_with_straw:")
