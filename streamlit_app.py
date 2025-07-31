@@ -1,13 +1,13 @@
 
 # Define connection parameters
 connection_parameters = {
-    "account": "account",
-    "user": "user",
-    "password": "password",
-    "role": "role",
-    "warehouse": "warehouse",
-    "database": "SF_RAG_APP",
-    "schema": "RAG_APP_SCHEMA"
+    "account": "PWRZITO-SFB66087",
+    "user": "CHINNA32",
+    "password": "Gogulamudi@526k",
+    "role": "SYSADMIN",
+    "warehouse": "COMPUTE_WH",
+    "database": "SMOOTHIES",
+    "schema": "PUBLIC"
 }
 # Import python packages
 import streamlit as st
