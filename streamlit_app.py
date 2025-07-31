@@ -41,8 +41,9 @@ session = get_snowpark_session()
 from snowflake.snowpark.functions import col
 
 
-my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
-#st.dataframe(data=my_dataframe, use_container_width=True)
+my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col('SEARCH_ON'))
+st.dataframe(data=my_dataframe, use_container_width=True)
+st.stop()
 name_on_order =st.text_input('Name On Smoothie :')
 
 ingredients_list=st.multiselect('Choose upto 5 items:',my_dataframe,max_selections=5)
