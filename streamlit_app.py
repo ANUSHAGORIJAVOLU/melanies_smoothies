@@ -1,20 +1,26 @@
 
 # Define connection parameters
 connection_parameters = {
-    "account": "PWRZITO-SFB66087",
-    "user": "CHINNA32",
-    "password": "Gogulamudi@526k",
-    "role": "SYSADMIN",
-    "warehouse": "COMPUTE_WH",
-    "database": "SMOOTHIES",
-    "schema": "PUBLIC"
+    "account": "account",
+    "user": "user",
+    "password": "password",
+    "role": "role",
+    "warehouse": "warehouse",
+    "database": "SF_RAG_APP",
+    "schema": "RAG_APP_SCHEMA"
 }
-
-
 # Import python packages
 import streamlit as st
-#from snowflake.snowpark.context import get_active_session
-#from snowflake.snowpark import Session
+from snowflake.snowpark.context import get_active_session
+from snowflake.snowpark import Session
+def get_snowpark_session():
+    """ Get or create a Snowpark session """
+    return Session.builder.configs(connection_parameters).create()
+
+# Use this function to get a single session instead of creating new ones
+session = get_snowpark_session()
+
+
 # Write directly to the app
 st.title(f" :cup_with_straw: Customise Your Smoothie :cup_with_straw:")
 st.write(
@@ -23,14 +29,14 @@ st.write(
 )
 def get_snowpark_session():
     """ Get or create a Snowpark session """
-   return Session.builder.configs(connection_parameters).create()
+    return Session.builder.configs(connection_parameters).create()
 
 # Use this function to get a single session instead of creating new ones
 session = get_snowpark_session()
 
 from snowflake.snowpark.functions import col
 
-session = get_active_session()
+
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 st.dataframe(data=my_dataframe, use_container_width=True)
 name_on_order =st.text_input('Name On Smoothie :')
