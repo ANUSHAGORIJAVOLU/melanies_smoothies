@@ -1,14 +1,32 @@
+
+# Define connection parameters
+connection_parameters = {
+    "account": "PWRZITO-SFB66087",
+    "user": "CHINNA32",
+    "password": "Gogulamudi@526k",
+    "role": "SYSADMIN",
+    "warehouse": "COMPUTE_WH",
+    "database": "SMOOTHIES",
+    "schema": "PUBLIC"
+}
+
+
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
-from snowflake.snowpark import Session
+#from snowflake.snowpark.context import get_active_session
+#from snowflake.snowpark import Session
 # Write directly to the app
 st.title(f" :cup_with_straw: Customise Your Smoothie :cup_with_straw:")
 st.write(
   """Choose the fruit you want to your custom smoothie!
   """
 )
+def get_snowpark_session():
+    """ Get or create a Snowpark session """
+   return Session.builder.configs(connection_parameters).create()
 
+# Use this function to get a single session instead of creating new ones
+session = get_snowpark_session()
 
 from snowflake.snowpark.functions import col
 
